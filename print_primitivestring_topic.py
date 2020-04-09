@@ -46,7 +46,7 @@ except (ImportError, AttributeError):
     script_path = os.path.abspath(os.path.dirname(__file__))
     # Generate the standard namespace. The order actually doesn't matter.
     pyuavcan.dsdl.generate_package(
-        root_namespace_directory=os.path.join(script_path, '../public_regulated_data_types/uavcan'),
+        root_namespace_directory=os.path.join(script_path, './public_regulated_data_types/uavcan'),
         output_directory=dsdl_generated_dir,
     )
     # Okay, we can try importing again. We need to clear the import cache first because Python's import machinery
