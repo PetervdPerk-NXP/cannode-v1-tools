@@ -1,0 +1,27 @@
+# Based from uORB msg https://github.com/hsteinhaus/PX4Firmware/blob/master/src/modules/uORB/topics/vehicle_gps_position.h
+uint64 timestamp
+uint64 time_utc_usec
+int32 lat
+int32 lon
+int32 alt
+int32 alt_ellipsoid
+float32 s_variance_m_s
+float32 c_variance_rad
+float32 eph
+float32 epv
+float32 hdop
+float32 vdop
+int32 noise_per_ms
+int32 jamming_indicator
+float32 vel_m_s
+float32 vel_n_m_s
+float32 vel_e_m_s
+float32 vel_d_m_s
+float32 cog_rad
+int32 timestamp_time_relative
+float32 heading
+float32 heading_offset
+uint8 fix_type
+bool vel_ned_valid
+uint8 satellites_used
+uint8[5] _padding0 # required for logger
