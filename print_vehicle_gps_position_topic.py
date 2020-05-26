@@ -68,8 +68,9 @@ import uavcan.node                      # noqa E402
 import uavcan.diagnostic                # noqa E402
 import uavcan.primitive
 
+print('Start')
 
-class DemoApplication:
+class PrintPX4VehicleGPSApplication:
     def __init__(self):
 
         # Make sure to initialize the CAN interface. 
@@ -97,13 +98,13 @@ class DemoApplication:
         self._node = pyuavcan.application.Node(presentation, node_info)
 
         # A message subscription.
-        self._sub_temperature = self._node.presentation.make_subscriber(px4.VehicleGPSPosition_1_0, 4421)
-        self._sub_temperature.receive_in_background(self._handle_string)
+        self._sub_vehiclegpsposition = self._node.presentation.make_subscriber(px4.VehicleGPSPosition_1_0, 4421)
+        self._sub_vehiclegpsposition.receive_in_background(self._handle_msg)
 
         # When all is initialized, don't forget to start the node!
         self._node.start()
 
-    async def _handle_string(self,
+    async def _handle_msg(self,
                                   msg:      px4.VehicleGPSPosition_1_0,
                                   metadata: pyuavcan.transport.TransferFrom) -> None:
         """
@@ -142,7 +143,7 @@ class DemoApplication:
 
 
 if __name__ == '__main__':
-    app = DemoApplication()
+    app = PrintPX4VehicleGPSApplication()
     app_tasks = asyncio.Task.all_tasks()
 
     async def list_tasks_periodically() -> None:
