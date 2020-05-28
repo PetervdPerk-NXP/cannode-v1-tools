@@ -1,4 +1,4 @@
-# Based from uORB msg https://github.com/hsteinhaus/PX4Firmware/blob/master/src/modules/uORB/topics/vehicle_gps_position.h
+# Based from uORB msg https://github.com/px4/firmware/blob/master/src/modules/uORB/topics/vehicle_gps_position.h
 uint64 timestamp
 uint64 time_utc_usec
 int32 lat
